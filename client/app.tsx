@@ -1,20 +1,17 @@
 import * as React from 'react';
 import { hot } from "react-hot-loader/root";
-
-interface Props {
-   name:
-    string
-}
-
-class App extends React.Component<Props> {
+import ProfileBox from './components/ProfileBoxComp';
+import ProfileModal from './components/ProfileModalComp';
+class App extends React.Component {
   render() {
-    const { name } = this.props;
     return (
-      <>
-        <h1 className="text-4xl text-white bg-black">
-          Hello {name}
+      <div className='h-56 grid grid-cols-3 gap-4 content-between'>
+        <h1 className="text-3xl text-black font-bold">
+          Reinforcment Project
         </h1>
-      </>
+        <ProfileBox firstName={"Adam"} yearsExp= {"0-5"} rate= {"$40/h"} lastName={"Lang"} description={"Here is our description Here is our description Here is our description Here is our description Here is our description"} hobbies={"This is my hobby This is my hobby This is my hobby This is my hobby This is my hobby This is my hobby This is my hobby"}></ProfileBox>
+        <ProfileModal></ProfileModal>
+      </div>
     );
   }
 }

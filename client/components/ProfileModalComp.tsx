@@ -14,6 +14,7 @@ const ProfileModal = (props: any): JSX.Element => {
       alert('Please input all required fields');
       return;
     }
+    !props.showProfile[0] ? props.showProfile[1](true) : props.showProfile[1](false);
     const formObject = { firstName,
                          lastName,
                          yearsExp,
@@ -39,8 +40,8 @@ const ProfileModal = (props: any): JSX.Element => {
 
 
     return (
-        <div>
-        <div className="box-border h-100 w-100 border-4 border-black text-center grid grid-cols-2">
+        <div className = "flex box-border border-4 border-black justify-center flex-col">
+        <div className="flex h-fit w-fit text-center grid grid-col-2 pl-1">
          <div className="mb-4">
       <label className="block text-gray-700 text-sm font-bold mb-2" >
         Name
@@ -59,18 +60,19 @@ const ProfileModal = (props: any): JSX.Element => {
       </div>
     
 
-      <select className="classic"  onChange = {(e) => setYearsExp(e.target.value)}>
+      <select className="text-center"  onChange = {(e) => setYearsExp(e.target.value)}>
                     <option value="0-5" >0-5</option>
                     <option value="5-10">5-10</option>
                     <option value="10-15">10-15</option>
                     <option value="15">15+</option>
                 </select>
     
-      <label className="block text-gray-700 text-sm font-bold mb-2" >
+      <label className="block text-gray-700 text-sm font-bold mb-2 flex justify-center" >
           Rate (per hour)
       </label>
+      <div className='flex justify-center'>
       <input className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="$40/hour" onChange = {(e) => setRate(e.target.value)} />
-      
+      </div>
       <label className="block text-gray-700 text-sm font-bold mb-2" >
           Description
       </label>

@@ -15,7 +15,6 @@ type ProfileBoxProps  = {
 function ProfilesContainer (props: {profilesArray: ProfileBoxProps[]}): any {
      const [showProfile, setShowProfile] = React.useState(false)
      const profiles: any[] = []
-    
          for (let i = 0; i < props.profilesArray.length; i++) {
             profiles.push(<ProfileBox 
                 firstName ={props.profilesArray[i].firstName} 
@@ -27,13 +26,18 @@ function ProfilesContainer (props: {profilesArray: ProfileBoxProps[]}): any {
          }
         return (
             <div>
-            <div className = "flex justify-end p-10">
+                <h1 className= "text-center text-5xl">Reviewer Profiles</h1>
+            <div className = "flex justify-end p-10 grid-cols-1">
+                <div>
                 <button className ="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick = {() => !showProfile ? setShowProfile(true) : setShowProfile(false)}>Submit Profile</button>
+                {showProfile ? <ProfileModal showProfile = {[showProfile, setShowProfile]}></ProfileModal> : <></>}
+                </div>
+                
             </div>
+                
             <div className='w-2/3 mx-auto my-20'>
                 <div className = "grid grid-cols-4 grid-flow-row gap-x-10 gap-y-10 justify-center">
                 {profiles}
-                {showProfile ? <ProfileModal></ProfileModal> : <></>}
                 </div>
             </div>
             </div>

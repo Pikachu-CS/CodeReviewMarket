@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { hot } from "react-hot-loader/root";
-
+import ListingContainer from "./components/containers/listingContainer"
 interface Props {
-   name:
-    string
+  name:
+  string;
+  
 }
 
 class App extends React.Component<Props> {
@@ -12,8 +13,9 @@ class App extends React.Component<Props> {
     return (
       <>
         <h1 className="text-4xl text-white bg-black">
-          Hello {name}
+          Hellos {name}
         </h1>
+        <ListingContainer />
       </>
     );
   }

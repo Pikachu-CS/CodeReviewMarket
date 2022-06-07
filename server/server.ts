@@ -1,5 +1,6 @@
-import express, { Request, Response, NextFunction, RequestHandler } from 'express';
+import express, { Request, Response, NextFunction, RequestHandler } from 'Express';
 import path from 'path'
+
 
 type ServerError = {
     log: string,

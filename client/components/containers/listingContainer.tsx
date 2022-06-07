@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import ListingBox from '../boxes/ListingBox'
+import ListingBox from '../boxes/ListingBox';
 import { BoxState } from '../../types/types';
 
 
-function ListingContainer (props: BoxState): any{
-
+function ListingContainer (props: BoxState[]): any{
 
 /**
  * @method populateListing

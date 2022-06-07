@@ -1,5 +1,5 @@
-export interface BoxState {
-    projectName: string;
-    projectDetails: string;
-    payRange: number;
+export type BoxState = {
+    projectDetails: String,
+    projectName: String,
+    payRange: Number
 }

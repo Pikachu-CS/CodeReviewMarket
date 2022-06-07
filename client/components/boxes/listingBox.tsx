@@ -7,10 +7,10 @@
  */
 import { BoxState } from '../../types/types';
 import React from 'react';
-import ListingContainer from '../containers/listingContainer';
+import ListingsContainer from '../containers/listingContainer';
 // import {  } from './../types/types'
 
-function ListingBox(props: BoxState) {
+function ListingBox(props: BoxState): JSX.Element {
   // const handleBoxClick = props.handleBoxClick;
   // // button, id, content
   // return <button className='listingBox' onClick={handleBoxClick}></button>

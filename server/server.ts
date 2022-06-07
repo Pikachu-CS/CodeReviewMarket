@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction, RequestHandler } from 'Express';
 import path from 'path'
 
+
 type ServerError = {
     log: string,
     status: number,
@@ -10,9 +11,7 @@ type ServerError = {
 }
 
 
-
 const app = express();
-
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../dist')));
 

@@ -1,4 +1,5 @@
 import *  as React from 'react'
+
 type ProfileBoxProps  = {
     firstName : String,
     lastName: String,

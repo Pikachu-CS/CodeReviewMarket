@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { hot } from "react-hot-loader/root";
+import ListingsContainer from './containers/ListingsContainer';
 import ProfileBox from './components/ProfileBoxComp';
 import ProfileModal from './components/ProfileModalComp';
 import ProfilesContainer from './containers/ProfileContainer';
+import { BrowserRouter, Router, Route, Link, Routes } from 'react-router-dom';
 const ProfilesArray = [ {
   firstName : "1 First",
   lastName: "1 Last",
@@ -164,20 +166,40 @@ const ProfilesArray = [ {
   hobbies: "2 hobbies"
 }]
 
+const ListingsArray = [ {
+  projectDetails: "these are the example project Details",
+  projectName: 'Either the name of the project or person i guess',
+  payRange: 20,
+  codeSnippet: "5x+13-12=y",
+  details: "details",
+  contact: "String"
+}, 
+{
+  projectDetails: "these are the example project Details",
+  projectName: ' the name of the project',
+  payRange: 10,
+  codeSnippet: "5x+13-12=y",
+  details: "details",
+  contact: "String"
+}, {
+  projectDetails: "more project Details",
+  projectName: 'name of the person i guess',
+  payRange: 30,
+  codeSnippet: "5x+13-12=y",
+  details: "details",
+  contact: "String"
+}]
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        {/* <ProfileBox firstName={"Adam"} yearsExp= {"0-5"} rate= {"$40/h"} lastName={"Lang"} description={"Here is our description Here is our description Here is our description Here is our description Here is our description"} hobbies={"This is my hobby This is my hobby This is my hobby This is my hobby This is my hobby This is my hobby This is my hobby"}></ProfileBox>
-        <ProfileModal></ProfileModal> */}
-        <ProfilesContainer profilesArray = {ProfilesArray}></ProfilesContainer>
 
-
-
-      </div>
-    );
-  }
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<ProfilesContainer profilesArray={ProfilesArray}/>} />
+        <Route path='/listings' element={<ListingsContainer listingsArray={ListingsArray}/>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default hot(App);
+export default App;

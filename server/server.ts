@@ -1,5 +1,5 @@
+  
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
-import path from 'path'
 
 type ServerError = {
     log: string,
@@ -9,11 +9,13 @@ type ServerError = {
     }
 }
 
-
 const app = express();
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, '../dist')));
 
+app.get('/test', (req, res, next) =>  {
+  console.log('here')
+  console.log('again')
+  res.send('test')});
 
 app.use('/', (err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {

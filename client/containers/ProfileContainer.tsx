@@ -15,7 +15,6 @@ type ProfileBoxProps  = {
 
 function ProfilesContainer (props: {profilesArray: ProfileBoxProps[]}): any {
      const [showProfile, setShowProfile] = React.useState(false)
-     const navigate = useNavigate();
 
      const profiles: any[] = []
          for (let i = 0; i < props.profilesArray.length; i++) {

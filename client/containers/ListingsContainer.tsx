@@ -38,7 +38,7 @@ const ListingsContainer = (props: {listingsArray: BoxState[]}): any => {
       }
       return (
         <div> 
-          <Link to='/'>
+          <Link to='/profiles'>
             <button>
             <button className ="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">See Profiles</button>
  

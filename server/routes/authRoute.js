@@ -36,7 +36,8 @@ bcryptController.checkCreds = async (req, res, next) => {
       res.locals.userInfo = userInDb.rows[0].users;
       return next()
       } else {
-        throw new Error('Password does not match for user: ', users);
+        res.locals.userInfo ="NOMATCHFOUND"
+        return next()
       }      
   } catch(err) {
      return next({

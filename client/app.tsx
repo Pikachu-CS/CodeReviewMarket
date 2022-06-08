@@ -4,6 +4,7 @@ import ListingsContainer from './containers/ListingsContainer';
 import ProfileBox from './components/ProfileBoxComp';
 import ProfileModal from './components/ProfileModalComp';
 import ProfilesContainer from './containers/ProfileContainer';
+import LandingPage from './containers/LandingPage';
 import { BrowserRouter, Router, Route, Link, Routes } from 'react-router-dom';
 const ProfilesArray = [ {
   firstName : "1 First",
@@ -195,7 +196,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<ProfilesContainer profilesArray={ProfilesArray}/>} />
+        <Route path='/' element={<LandingPage/>} />
+        <Route path='/profiles' element={<ProfilesContainer profilesArray={ProfilesArray}/>} />
         <Route path='/listings' element={<ListingsContainer listingsArray={ListingsArray}/>} />
       </Routes>
     </BrowserRouter>

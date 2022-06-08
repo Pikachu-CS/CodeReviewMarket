@@ -1,5 +1,7 @@
   
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
+const bcryptController = require('./routes/authRoute')
+
 
 type ServerError = {
     log: string,
@@ -12,10 +14,18 @@ type ServerError = {
 const app = express();
 app.use(express.json());
 
-app.get('/test', (req, res, next) =>  {
-  console.log('here')
-  console.log('again')
-  res.send('test')});
+// app.get('/test', (req, res, next) =>  {
+//   console.log('here')
+//   console.log('again')
+//   res.send('test')});
+
+app.post('/signup', bcryptController.signUp, (req, res) => {
+   res.sendStatus(200);
+})
+
+app.get('/login', bcryptController.checkCreds, (req, res) => {
+  res.status(200).json(res.locals.userInfo);
+})
 
 app.use('/', (err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {

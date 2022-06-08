@@ -44,7 +44,7 @@ const LandingPage = (): JSX.Element => {
 
     return (
         <div>
-            <h1 className="text-center bg-black text-white text-5xl">Code Review MarketPlace</h1>
+            <h1 className="text-center bg-black text-white text-8xl pt-12 z-3">Code Review MarketPlace</h1>
      <div>
       <Video></Video>
       <div className="grid place-content-center h-center absolute bottom-64 left-72 z-1">

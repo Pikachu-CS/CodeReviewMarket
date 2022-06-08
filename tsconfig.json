@@ -5,14 +5,12 @@
         "strict": true,
         "noImplicitReturns": true,
         "noImplicitAny": true,
-        "module": "commonJS",
+        "module": "commonjs",
         "moduleResolution": "node",
-        "target": "es5",
+        "target": "es6",
         "allowJs": true,
         "jsx": "react",
         "esModuleInterop": true
     },
-    "include": [
-        "./client/**/*"
-    ]
+    "include": ["./client/**/*"]
 }

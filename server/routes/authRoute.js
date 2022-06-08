@@ -5,37 +5,38 @@ const bcryptController = {};
 
 bcryptController.signUp = async (req, res, next) => {
   console.log("hit")
-  const { user, password } = req.body;
+  const {users, password } = req.body;
   const hash = await bcrypt.hash(password, 10);
-  console.log("user", user)
-  console.log("hash", hash)
+  console.log("user", users)
+  console.log("password", password)
+  console.log("hash", typeof hash)
+  console.log("typeof hash", typeof hash)
   try {
-    await db.query('INSERT INTO users(user, password) VALUES ("Sunit", "Password")');
-    return next();
-  } 
-  catch {
+  await db.query('INSERT INTO usertable(id, users, password) VALUES (DEFAULT, $1, $2) RETURNING *',
+  [users, hash]);
+  return next();
+  } catch(err) {
     return next({
-    log: 'bycryptController.signUp ERROR',
-    status: 500,
-    message: { err: 'Could not post credentials'}
-    })
+      log: 'bycryptController.checkCreds ERROR',
+      status: 500,
+      message: { err: 'Could not post credentials'}
+      })
   }
 };
 
 bcryptController.checkCreds = async (req, res, next) => {
-  const { user, password } = req.body;
+  const { users, password } = req.body;
   try {
-      if(!user || !password) {
+      if(!users || !password) {
           return next("error")
       }
-      const userInDb = await db.query('SELECT * FROM Users WHERE user = $1', [user]);
-      console.log('userInDb: ', userInDb);
+      const userInDb = await db.query('SELECT * FROM usertable WHERE users = $1', [users]);
       const isMatch = await bcrypt.compare(password, userInDb.rows[0].password)
       if(isMatch) {
-      res.locals.userInfo = userInDb.rows[0].user;
+      res.locals.userInfo = userInDb.rows[0].users;
       return next()
       } else {
-        throw new Error('Password does not match for user: ', user);
+        throw new Error('Password does not match for user: ', users);
       }      
   } catch(err) {
      return next({

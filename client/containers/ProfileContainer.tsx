@@ -2,7 +2,7 @@ import *  as React from 'react'
 import ProfileBox from '../components/ProfileBoxComp'
 import ProfileModal from '../components/ProfileModalComp'
 import { Link, useNavigate } from 'react-router-dom';
-
+import Video from '../components/Video'
 type ProfileBoxProps  = {
     firstName : String,
     lastName: String,

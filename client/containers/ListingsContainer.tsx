@@ -41,7 +41,6 @@ const ListingsContainer = (props: {listingsArray: BoxState[]}): any => {
           <Link to='/profiles'>
             <button>
             <button className ="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">See Profiles</button>
- 
             </button>
           </Link>
             <div className = "flex justify-end p-3 grid-cols-1">

@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import ListingBox from '../components/boxes/ListingBox'
+import ListingBox from '../components/boxes/ListingBox';
 import { BoxState } from '../types/types';
 import ProfilesContainer from './ProfileContainer';
 import { Link } from 'react-router-dom';

@@ -20,18 +20,18 @@ function ListingBox(props: BoxState): JSX.Element {
   // </div>
   // )
  return ( 
-  <div className=" flex flex-col h-fit box-border border-4 border-black text-center w-64">
-  <label>Project Name</label>
+  <div data-testid = 'listing-box' className=" flex flex-col h-fit box-border border-4 border-black text-center w-64">
+  <label className='listing-box-field'>Project Name</label>
   <h3>{props.projectName}</h3>
-  <h3> Project Details {props.projectDetails}</h3>
-  <h3> Pay Range{props.payRange}</h3>
-  <h3> Code Snippet 
+  <h3 className='listing-box-field'> Project Details {props.projectDetails}</h3>
+  <h3 className='listing-box-field'> Pay Range{props.payRange}</h3>
+  <h3 className='listing-box-field'> Code Snippet 
     <code>
     {props.codeSnippet}
     </code>
     </h3>
-  <h3> Details {props.details}</h3>
-  <h3> Contacts {props.contact}</h3>
+  <h3 className='listing-box-field'> Details {props.details}</h3>
+  <h3 className='listing-box-field'> Contacts {props.contact}</h3>
 
   </div>
  )
